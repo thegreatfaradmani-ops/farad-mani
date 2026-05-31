@@ -55,13 +55,14 @@
             color: #fff;
         }
 
-        /* SEÇÕES DE HERO / CAPA (INDEX, FREUDIANO, FARADOESTE, DENTRO AQUI) */
+        /* SEÇÕES DE HERO / CAPA COM EFEITO PARALLAX */
         .hero-section {
             height: 100vh;
             width: 100%;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed; /* Efeito Parallax */
             display: flex;
             align-items: center;
             position: relative;
@@ -69,7 +70,7 @@
 
         /* Estilização específica do Index (Menu Centralizado) */
         #home {
-            background-image: url('bg-index.jpg'); /* Substitua pela imagem da plantação */
+            background-image: url('index.jpg'); 
             justify-content: center;
         }
 
@@ -102,6 +103,8 @@
             justify-content: center;
             align-items: center;
             text-align: left;
+            position: relative;
+            z-index: 2;
         }
 
         .description-content {
@@ -115,25 +118,27 @@
             font-weight: 700;
         }
 
-        /* SEÇÃO DE TRACKLIST (METADE IMAGEM / METADE CONTEÚDO) */
+        /* SEÇÃO DE TRACKLIST COM PARALLAX (METADE IMAGEM / METADE CONTEÚDO) */
         .tracklist-section {
             height: 100vh;
             width: 100%;
             background-size: cover;
             background-position: center;
+            background-attachment: fixed; /* Efeito Parallax */
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 0 10%;
+            z-index: 1;
         }
 
-        /* Backgrounds específicos das Tracklists */
-        #freudiano-tracks { background-image: url('bg-track-freudiano.jpg'); }
-        #faradoeste-tracks { background-image: url('bg-track-faradoeste.jpg'); }
-        #dentroaqui-tracks { background-image: url('bg-track-dentroaqui.jpg'); }
+        /* Backgrounds específicos das Tracklists baseados nas imagens exportadas */
+        #freudiano-tracks { background-image: url('freudiano.jpg'); }
+        #faradoeste-tracks { background-image: url('faradoeste.jpg'); }
+        #dentroaqui-tracks { background-image: url('dentro-aqui.jpg'); }
 
-        /* Botão Padrão H1 / Action solicitado */
+        /* Botão Padrão Geral (Texto Claro) */
         .cta-button {
             display: inline-block;
             border: 1px solid #fff;
@@ -154,7 +159,7 @@
             color: #000;
         }
 
-        /* Lista de Músicas */
+        /* Lista de Músicas Geral */
         .track-list {
             list-style: none;
             display: flex;
@@ -168,17 +173,43 @@
             letter-spacing: 0.5px;
         }
 
+        /* Estilo para faixas não lançadas (Disco Freudiano) */
+        .track-item.unreleased {
+            text-decoration: line-through;
+            font-style: italic;
+            opacity: 0.5;
+        }
+
+        /* CUSTOMIZAÇÃO EXCLUSIVA PARA O EP DENTRO AQUI (FUNDO CLARO -> TEXTO PRETO) */
+        #dentroaqui-tracks {
+            color: #000;
+        }
+        #dentroaqui-tracks .cta-button {
+            border: 1px solid #000;
+            color: #000;
+        }
+        #dentroaqui-tracks .cta-button:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
         /* SEÇÕES INSTITUCIONAIS (O ARTISTA E REDES) */
         .text-panel-section {
             min-height: 100vh;
             width: 100%;
-            background-color: #4A1A22; /* Tom marsala/vinho do design */
+            background-color: #4A1A22; 
             box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 80px 12%;
+            position: relative;
+            z-index: 2;
         }
+
+        /* Customização de Fundo para Seções Específicas se houver imagem */
+        #artista { background-image: url('o-artista.jpg'); background-size: cover; background-position: center; }
+        #redes { background-image: url('redes-sociais.jpg'); background-size: cover; background-position: center; }
 
         .panel-title {
             font-size: 42px;
@@ -219,6 +250,9 @@
 
         /* RESPONSIVIDADE (MOBILE) */
         @media (max-width: 768px) {
+            .hero-section, .tracklist-section {
+                background-attachment: scroll; /* Parallax desativado em mobile para melhor performance */
+            }
             .navbar {
                 gap: 12px;
                 padding: 15px 10px;
@@ -269,12 +303,11 @@
         </div>
     </section>
 
-    <section id="freudiano" class="hero-section" style="background-image: url('bg-freudiano.jpg');">
-        </section>
+    <section id="freudiano" class="hero-section" style="background-image: url('freudiano.jpg');"></section>
 
     <div class="description-section">
         <div class="description-content">
-            <p><strong>*Freudiano*</strong> é o novo disco de Farad Mani, formado por 10 faixas inéditas lançadas mensalmente. Misturando Alt R&B, Neo Soul e Nova Bossa, o projeto explora temas como desejo, subconsciente, sonhos e relações humanas dentro de uma sonoridade moderna, sensual e intimista. Com uma identidade própria, o álbum conectará diferentes experiências emocionais em uma sequência de lançamentos pensada como uma obra contínua.</p>
+            <p><strong>Freudiano</strong> é o novo disco de Farad Mani, formado por 10 faixas inéditas lançadas mensalmente. Misturando Alt R&B, Neo Soul e Nova Bossa, o projeto explora temas como desejo, subconsciente, sonhos e relações humanas dentro de uma sonoridade moderna, sensual e intimista. Com uma identidade própria, o álbum conectará diferentes experiências emocionais em uma sequência de lançamentos pensada como uma obra contínua.</p>
         </div>
     </div>
 
@@ -294,11 +327,11 @@
         </ol>
     </section>
 
-    <section id="faradoeste" class="hero-section" style="background-image: url('bg-faradoeste.jpg');"></section>
+    <section id="faradoeste" class="hero-section" style="background-image: url('faradoeste.jpg');"></section>
 
     <div class="description-section">
         <div class="description-content">
-            <p><strong>FaradOeste</strong> é um EP de Alt R&B que parte da confluência de uma juventude urbana vivendo em uma cidade marcada por traditions do interior. Entre referências contemporâneas e heranças culturais ainda presentes no cotidiano, o projeto aborda os conflitos, deslocamentos e adaptações que surgem desse encontro entre modernidade e tradição. Com uma sonoridade provocadora e atual, o EP transforma experiências locais em narrativas que dialogam com uma geração em constante transformação.</p>
+            <p><strong>FaradOeste</strong> é um EP de Alt R&B que parte da confluência de uma juventude urbana vivendo em uma cidade marcada por tradições do interior. Entre referências contemporâneas e heranças culturais ainda presentes no cotidiano, o projeto aborda os conflitos, deslocamentos e adaptações que surgem desse encontro entre modernidade e tradição. Com uma sonoridade provocadora e atual, o EP transforma experiências locais em narrativas que dialogam com uma geração em constante transformação.</p>
         </div>
     </div>
 
@@ -313,7 +346,7 @@
         </ol>
     </section>
 
-    <section id="dentroaqui" class="hero-section" style="background-image: url('bg-dentroaqui.jpg');"></section>
+    <section id="dentroaqui" class="hero-section" style="background-image: url('dentro-aqui.jpg');"></section>
 
     <div class="description-section">
         <div class="description-content">
@@ -350,6 +383,17 @@
             <a href="https://onerpm.link/291171123544" target="_blank">Streamings</a>
         </div>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Seleciona a tracklist do disco Freudiano
+            const freudianoTracks = document.querySelectorAll("#freudiano-tracks .track-item");
+            // Aplica a classe 'unreleased' nas faixas de 3 a 10 (índices 2 a 9 no JavaScript)
+            for (let i = 2; i < freudianoTracks.length; i++) {
+                freudianoTracks[i].classList.add("unreleased");
+            }
+        });
+    </script>
 
 </body>
 </html>
