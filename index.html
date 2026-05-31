@@ -38,7 +38,7 @@
             gap: 25px;
             padding: 25px 15px;
             z-index: 1000;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
             flex-wrap: wrap;
         }
 
@@ -62,19 +62,18 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* Efeito Parallax */
+            background-attachment: fixed; /* Efeito Parallax Mantido */
             display: flex;
             align-items: center;
             position: relative;
         }
 
-        /* Buscando corretamente o seu arquivo de capa */
         #home {
             background-image: url('bg-index.jpg'); 
             justify-content: center;
         }
 
-        /* O MENU CENTRALIZADO DO INDEX QUE EU TINHA TIRADO (DE VOLTA) */
+        /* MENU CENTRALIZADO DO INDEX */
         .index-menu {
             display: flex;
             flex-direction: column;
@@ -121,13 +120,13 @@
             font-weight: 700;
         }
 
-        /* SEÇÃO DE TRACKLIST COM PARALLAX (METADE IMAGEM / METADE CONTEÚDO) */
+        /* SEÇÃO DE TRACKLIST COM PARALLAX */
         .tracklist-section {
             height: 100vh;
             width: 100%;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Efeito Parallax */
+            background-attachment: fixed; /* Efeito Parallax Mantido */
             position: relative;
             display: flex;
             flex-direction: column;
@@ -136,12 +135,10 @@
             z-index: 1;
         }
 
-        /* Nomes originais das suas imagens de fundo da tracklist */
         #freudiano-tracks { background-image: url('bg-track-freudiano.jpg'); }
         #faradoeste-tracks { background-image: url('bg-track-faradoeste.jpg'); }
         #dentroaqui-tracks { background-image: url('bg-track-dentroaqui.jpg'); }
 
-        /* Botão Padrão Geral (Texto Claro) */
         .cta-button {
             display: inline-block;
             border: 1px solid #fff;
@@ -162,7 +159,6 @@
             color: #000;
         }
 
-        /* Lista de Músicas Geral */
         .track-list {
             list-style: none;
             display: flex;
@@ -176,27 +172,18 @@
             letter-spacing: 0.5px;
         }
 
-        /* Estilo para faixas não lançadas (Disco Freudiano) */
         .track-item.unreleased {
             text-decoration: line-through;
             font-style: italic;
             opacity: 0.5;
         }
 
-        /* CUSTOMIZAÇÃO EXCLUSIVA PARA O EP DENTRO AQUI (TEXTO PRETO PARA CONTRASTE) */
-        #dentroaqui-tracks {
-            color: #000;
-        }
-        #dentroaqui-tracks .cta-button {
-            border: 1px solid #000;
-            color: #000;
-        }
-        #dentroaqui-tracks .cta-button:hover {
-            background-color: #000;
-            color: #fff;
-        }
+        /* CUSTOMIZAÇÃO DENTRO AQUI (TEXTO PRETO) */
+        #dentroaqui-tracks { color: #000; }
+        #dentroaqui-tracks .cta-button { border: 1px solid #000; color: #000; }
+        #dentroaqui-tracks .cta-button:hover { background-color: #000; color: #fff; }
 
-        /* SEÇÕES INSTITUCIONAIS (O ARTISTA E REDES) */
+        /* SEÇÕES INSTITUCIONAIS COM O GRADIENTE ESCURO COMPLETAMENTE RESTAURADO */
         .text-panel-section {
             min-height: 100vh;
             width: 100%;
@@ -206,16 +193,21 @@
             padding: 80px 12%;
             position: relative;
             z-index: 2;
+            /* Fundo gradiente marsala escuro voltado e fixado */
+            background: linear-gradient(135deg, rgba(35, 10, 15, 0.95) 0%, rgba(10, 5, 5, 0.98) 100%);
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: multiply;
         }
 
-        /* Mantendo os nomes originais das imagens das seções */
-        #artista { background-image: url('o-artista.jpg'); background-size: cover; background-position: center; }
-        #redes { background-image: url('redes-sociais.jpg'); background-size: cover; background-position: center; }
+        #artista { background-image: linear-gradient(135deg, rgba(35, 10, 15, 0.92) 0%, rgba(10, 5, 5, 0.96) 100%), url('o-artista.jpg'); }
+        #redes { background-image: linear-gradient(135deg, rgba(35, 10, 15, 0.92) 0%, rgba(10, 5, 5, 0.96) 100%), url('redes-sociais.jpg'); }
 
         .panel-title {
             font-size: 42px;
             font-weight: bold;
             margin-bottom: 40px;
+            letter-spacing: 0.5px;
         }
 
         .panel-body {
@@ -225,10 +217,9 @@
             display: flex;
             flex-direction: column;
             gap: 25px;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.95);
         }
 
-        /* Links de Redes Sociais Grandes */
         .links-list {
             display: flex;
             flex-direction: column;
@@ -252,34 +243,16 @@
         /* RESPONSIVIDADE (MOBILE) */
         @media (max-width: 768px) {
             .hero-section, .tracklist-section {
-                background-attachment: scroll; /* Parallax desativado em mobile para performance */
+                background-attachment: scroll;
             }
-            .navbar {
-                gap: 12px;
-                padding: 15px 10px;
-            }
-            .navbar a {
-                font-size: 9px;
-            }
-            .index-menu a {
-                font-size: 22px;
-            }
-            .track-item {
-                font-size: 18px;
-            }
-            .cta-button {
-                font-size: 18px;
-                padding: 10px 20px;
-            }
-            .panel-title {
-                font-size: 32px;
-            }
-            .links-list a {
-                font-size: 32px;
-            }
-            .panel-body {
-                font-size: 14px;
-            }
+            .navbar { gap: 12px; padding: 15px 10px; }
+            .navbar a { font-size: 9px; }
+            .index-menu a { font-size: 22px; }
+            .track-item { font-size: 18px; }
+            .cta-button { font-size: 18px; padding: 10px 20px; }
+            .panel-title { font-size: 32px; }
+            .links-list a { font-size: 32px; }
+            .panel-body { font-size: 14px; }
         }
     </style>
 </head>
@@ -351,7 +324,7 @@
 
     <div class="description-section">
         <div class="description-content">
-            <p><strong>Dentro Aqui</strong> é o primeiro EP de Farad Mani e apresenta os elements que passariam a definir sua identidade artística. Transitando entre o R&B e o Neo Soul, o projeto reúne canções que exploram afetos, encontros e, em alguns momentos, a ausência deles. Com uma abordagem mais íntima, o EP funciona como uma introdução ao universo do artista, revelando interesses estéticos, referências sonoras e temas que seguem presentes em sua trajetória.</p>
+            <p><strong>Dentro Aqui</strong> é o primeiro EP de Farad Mani e apresenta os elementos que passariam a definir sua identidade artística. Transitando entre o R&B e o Neo Soul, o projeto reúne canções que exploram afetos, encontros e, em alguns momentos, a ausência deles. Com uma abordagem mais íntima, o EP funciona como uma introdução ao universo do artista, revelando interesses estéticos, referências sonoras e temas que seguem presentes em sua trajetória.</p>
         </div>
     </div>
 
