@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farad Mani - Website Oficial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS RESET & VARIAÇÕES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arimo', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* MENU DE NAVEGAÇÃO */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 25px 15px;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #fff;
+        }
+
+        /* SEÇÕES DE HERO / CAPA (INDEX, FREUDIANO, FARADOESTE, DENTRO AQUI) */
+        .hero-section {
+            height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Estilização específica do Index (Menu Centralizado) */
+        #home {
+            background-image: url('bg-index.jpg'); /* Substitua pela imagem da plantação */
+            justify-content: center;
+        }
+
+        .index-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+            padding: 20px;
+        }
+
+        .index-menu a {
+            color: #fff;
+            font-size: 28px;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: opacity 0.3s;
+        }
+
+        .index-menu a:hover {
+            opacity: 0.7;
+        }
+
+        /* SEÇÃO DE TEXTO / SINOPSE (FUNDO CREME) */
+        .description-section {
+            background-color: #FAF8F5;
+            color: #000;
+            padding: 90px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+        }
+
+        .description-content {
+            max-width: 650px;
+            font-size: 14px;
+            line-height: 1.7;
+            letter-spacing: 0.3px;
+        }
+
+        .description-content strong {
+            font-weight: 700;
+        }
+
+        /* SEÇÃO DE TRACKLIST (METADE IMAGEM / METADE CONTEÚDO) */
+        .tracklist-section {
+            height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+        }
+
+        /* Backgrounds específicos das Tracklists */
+        #freudiano-tracks { background-image: url('bg-track-freudiano.jpg'); }
+        #faradoeste-tracks { background-image: url('bg-track-faradoeste.jpg'); }
+        #dentroaqui-tracks { background-image: url('bg-track-dentroaqui.jpg'); }
+
+        /* Botão Padrão H1 / Action solicitado */
+        .cta-button {
+            display: inline-block;
+            border: 1px solid #fff;
+            background: transparent;
+            color: #fff;
+            padding: 12px 24px;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-bottom: 40px;
+            width: fit-content;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Lista de Músicas */
+        .track-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .track-item {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        /* SEÇÕES INSTITUCIONAIS (O ARTISTA E REDES) */
+        .text-panel-section {
+            min-height: 100vh;
+            width: 100%;
+            background-color: #4A1A22; /* Tom marsala/vinho do design */
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 12%;
+        }
+
+        .panel-title {
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .panel-body {
+            max-width: 800px;
+            font-size: 16px;
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Links de Redes Sociais Grandes */
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .links-list a {
+            color: #fff;
+            font-size: 46px;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            font-weight: bold;
+            width: fit-content;
+            transition: opacity 0.3s;
+        }
+
+        .links-list a:hover {
+            opacity: 0.7;
+        }
+
+        /* RESPONSIVIDADE (MOBILE) */
+        @media (max-width: 768px) {
+            .navbar {
+                gap: 12px;
+                padding: 15px 10px;
+            }
+            .navbar a {
+                font-size: 9px;
+            }
+            .index-menu a {
+                font-size: 22px;
+            }
+            .track-item {
+                font-size: 18px;
+            }
+            .cta-button {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
+            .panel-title {
+                font-size: 32px;
+            }
+            .links-list a {
+                font-size: 32px;
+            }
+            .panel-body {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#home">Farad Mani</a>
+        <a href="#freudiano">Disco Freudiano</a>
+        <a href="#faradoeste">EP Faradoeste</a>
+        <a href="#dentroaqui">EP Dentro Aqui</a>
+        <a href="#artista">O Artista</a>
+        <a href="#redes">Redes Sociais</a>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="index-menu">
+            <a href="#artista">Farad Mani</a>
+            <a href="#freudiano">Disco Freudiano</a>
+            <a href="#faradoeste">EP Faradoeste</a>
+            <a href="#dentroaqui">EP Dentro Aqui</a>
+            <a href="#redes">Redes Sociais</a>
+        </div>
+    </section>
+
+    <section id="freudiano" class="hero-section" style="background-image: url('bg-freudiano.jpg');">
+        </section>
+
+    <div class="description-section">
+        <div class="description-content">
+            <p><strong>*Freudiano*</strong> é o novo disco de Farad Mani, formado por 10 faixas inéditas lançadas mensalmente. Misturando Alt R&B, Neo Soul e Nova Bossa, o projeto explora temas como desejo, subconsciente, sonhos e relações humanas dentro de uma sonoridade moderna, sensual e intimista. Com uma identidade própria, o álbum conectará diferentes experiências emocionais em uma sequência de lançamentos pensada como uma obra contínua.</p>
+        </div>
+    </div>
+
+    <section class="tracklist-section" id="freudiano-tracks">
+        <a href="https://onerpm.link/248150541186" target="_blank" class="cta-button">Ouça Freudiano</a>
+        <ol class="track-list">
+            <li class="track-item">1. Pluvia</li>
+            <li class="track-item">2. Meus Áudios</li>
+            <li class="track-item">3. Valor onde não tem</li>
+            <li class="track-item">4. Djavu</li>
+            <li class="track-item">5. Selene</li>
+            <li class="track-item">6. Me liga</li>
+            <li class="track-item">7. Santa Bárbara</li>
+            <li class="track-item">8. Magnestismo</li>
+            <li class="track-item">9. Passaporte</li>
+            <li class="track-item">10. Azul anil</li>
+        </ol>
+    </section>
+
+    <section id="faradoeste" class="hero-section" style="background-image: url('bg-faradoeste.jpg');"></section>
+
+    <div class="description-section">
+        <div class="description-content">
+            <p><strong>FaradOeste</strong> é um EP de Alt R&B que parte da confluência de uma juventude urbana vivendo em uma cidade marcada por traditions do interior. Entre referências contemporâneas e heranças culturais ainda presentes no cotidiano, o projeto aborda os conflitos, deslocamentos e adaptações que surgem desse encontro entre modernidade e tradição. Com uma sonoridade provocadora e atual, o EP transforma experiências locais em narrativas que dialogam com uma geração em constante transformação.</p>
+        </div>
+    </div>
+
+    <section class="tracklist-section" id="faradoeste-tracks">
+        <a href="https://onerpm.link/414967678333" target="_blank" class="cta-button">Ouça Faradoeste</a>
+        <ol class="track-list">
+            <li class="track-item">1. Wukong</li>
+            <li class="track-item">2. SFX</li>
+            <li class="track-item">3. 1974</li>
+            <li class="track-item">4. Rodeio</li>
+            <li class="track-item">5. Rio de saudades</li>
+        </ol>
+    </section>
+
+    <section id="dentroaqui" class="hero-section" style="background-image: url('bg-dentroaqui.jpg');"></section>
+
+    <div class="description-section">
+        <div class="description-content">
+            <p><strong>Dentro Aqui</strong> é o primeiro EP de Farad Mani e apresenta os elements que passariam a definir sua identidade artística. Transitando entre o R&B e o Neo Soul, o projeto reúne canções que exploram afetos, encontros e, em alguns momentos, a ausência deles. Com uma abordagem mais íntima, o EP funciona como uma introdução ao universo do artista, revelando interesses estéticos, referências sonoras e temas que seguem presentes em sua trajetória.</p>
+        </div>
+    </div>
+
+    <section class="tracklist-section" id="dentroaqui-tracks">
+        <a href="https://onerpm.link/827304425031" target="_blank" class="cta-button">Ouça Dentro Aqui</a>
+        <ol class="track-list">
+            <li class="track-item">1. Interlúdio</li>
+            <li class="track-item">2. Anáfora</li>
+            <li class="track-item">3. Broken Heart</li>
+            <li class="track-item">4. Alcione, 2004</li>
+            <li class="track-item">5. Only Us</li>
+            <li class="track-item">6. Sensação</li>
+        </ol>
+    </section>
+
+    <section id="artista" class="text-panel-section">
+        <h1 class="panel-title">O artista</h1>
+        <div class="panel-body">
+            <p>Membro da União Brasileira dos Compositores, Farad Mani é cantor, produtor e compositor ligado às novas sonoridades da música urbana contemporânea, transitando entre o R&B Alternativo, Neo Soul, Indie e outras estéticas marcadas por atmosferas intimistas e produção sensível.</p>
+            <p>Suas composições abordam temas como amor, desejo, sexualidade e vivências cotidianas a partir de uma escrita direta e imagética, aproximando a canção de uma crônica emocional contemporânea.</p>
+            <p>Com passagem pelos cursos de Artes Visuais da UFPel e Música da UFSCar, Farad desenvolve trabalhos que conectam som, imagem e direção estética, construindo uma identidade artística própria dentro da cena alternativa brasileira.</p>
+        </div>
+    </section>
+
+    <section id="redes" class="text-panel-section">
+        <div class="links-list">
+            <a href="https://www.instagram.com/faradmani/" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@faradmani" target="_blank">Tiktok</a>
+            <a href="https://www.youtube.com/@faradmani" target="_blank">Youtube</a>
+            <a href="https://onerpm.link/291171123544" target="_blank">Streamings</a>
+        </div>
+    </section>
+
+</body>
+</html>
