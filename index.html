@@ -133,10 +133,10 @@
             z-index: 1;
         }
 
-        /* Backgrounds específicos das Tracklists baseados nas imagens exportadas */
-        #freudiano-tracks { background-image: url('freudiano.jpg'); }
-        #faradoeste-tracks { background-image: url('faradoeste.jpg'); }
-        #dentroaqui-tracks { background-image: url('dentro-aqui.jpg'); }
+        /* Mantendo EXATAMENTE os nomes originais das suas imagens exportadas */
+        #freudiano-tracks { background-image: url('bg-track-freudiano.jpg'); }
+        #faradoeste-tracks { background-image: url('bg-track-faradoeste.jpg'); }
+        #dentroaqui-tracks { background-image: url('bg-track-dentroaqui.jpg'); }
 
         /* Botão Padrão Geral (Texto Claro) */
         .cta-button {
@@ -180,7 +180,7 @@
             opacity: 0.5;
         }
 
-        /* CUSTOMIZAÇÃO EXCLUSIVA PARA O EP DENTRO AQUI (FUNDO CLARO -> TEXTO PRETO) */
+        /* CUSTOMIZAÇÃO EXCLUSIVA PARA O EP DENTRO AQUI (FUNDO CLARO -> TEXTO PRETO PARA CONTRASTE) */
         #dentroaqui-tracks {
             color: #000;
         }
@@ -207,7 +207,7 @@
             z-index: 2;
         }
 
-        /* Customização de Fundo para Seções Específicas se houver imagem */
+        /* Mantendo os nomes originais das seções institucionais */
         #artista { background-image: url('o-artista.jpg'); background-size: cover; background-position: center; }
         #redes { background-image: url('redes-sociais.jpg'); background-size: cover; background-position: center; }
 
@@ -251,7 +251,7 @@
         /* RESPONSIVIDADE (MOBILE) */
         @media (max-width: 768px) {
             .hero-section, .tracklist-section {
-                background-attachment: scroll; /* Parallax desativado em mobile para melhor performance */
+                background-attachment: scroll; /* Parallax desativado em mobile para performance */
             }
             .navbar {
                 gap: 12px;
@@ -293,17 +293,9 @@
         <a href="#redes">Redes Sociais</a>
     </nav>
 
-    <section id="home" class="hero-section">
-        <div class="index-menu">
-            <a href="#artista">Farad Mani</a>
-            <a href="#freudiano">Disco Freudiano</a>
-            <a href="#faradoeste">EP Faradoeste</a>
-            <a href="#dentroaqui">EP Dentro Aqui</a>
-            <a href="#redes">Redes Sociais</a>
-        </div>
-    </section>
+    <section id="home" class="hero-section"></section>
 
-    <section id="freudiano" class="hero-section" style="background-image: url('freudiano.jpg');"></section>
+    <section id="freudiano" class="hero-section" style="background-image: url('bg-freudiano.jpg');"></section>
 
     <div class="description-section">
         <div class="description-content">
@@ -327,7 +319,7 @@
         </ol>
     </section>
 
-    <section id="faradoeste" class="hero-section" style="background-image: url('faradoeste.jpg');"></section>
+    <section id="faradoeste" class="hero-section" style="background-image: url('bg-faradoeste.jpg');"></section>
 
     <div class="description-section">
         <div class="description-content">
@@ -346,11 +338,11 @@
         </ol>
     </section>
 
-    <section id="dentroaqui" class="hero-section" style="background-image: url('dentro-aqui.jpg');"></section>
+    <section id="dentroaqui" class="hero-section" style="background-image: url('bg-dentroaqui.jpg');"></section>
 
     <div class="description-section">
         <div class="description-content">
-            <p><strong>Dentro Aqui</strong> é o primeiro EP de Farad Mani e apresenta os elements que passariam a definir sua identidade artística. Transitando entre o R&B e o Neo Soul, o projeto reúne canções que exploram afetos, encontros e, em alguns momentos, a ausência deles. Com uma abordagem mais íntima, o EP funciona como uma introdução ao universo do artista, revelando interesses estéticos, referências sonoras e temas que seguem presentes em sua trajetória.</p>
+            <p><strong>Dentro Aqui</strong> é o primeiro EP de Farad Mani e apresenta os elementos que passariam a definir sua identidade artística. Transitando entre o R&B e o Neo Soul, o projeto reúne canções que exploram afetos, encontros e, em alguns momentos, a ausência deles. Com uma abordagem mais íntima, o EP funciona como uma introdução ao universo do artista, revelando interesses estéticos, referências sonoras e temas que seguem presentes em sua trajetória.</p>
         </div>
     </div>
 
@@ -386,9 +378,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Seleciona a tracklist do disco Freudiano
             const freudianoTracks = document.querySelectorAll("#freudiano-tracks .track-item");
-            // Aplica a classe 'unreleased' nas faixas de 3 a 10 (índices 2 a 9 no JavaScript)
             for (let i = 2; i < freudianoTracks.length; i++) {
                 freudianoTracks[i].classList.add("unreleased");
             }
